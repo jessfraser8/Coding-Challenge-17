@@ -1,7 +1,7 @@
 // tasks.js
 // Define tasks.
 
-tasks = [
+ const tasks = [
     {
         id: 1,
         name: "Complete the React Challenge",
@@ -15,6 +15,11 @@ tasks = [
     {
         id: 3,
         name: "Clean the House",
+        isCompleted: true,
+    },
+    {
+        id: 4,
+        name: "Get an Oil Change",
         isCompleted: false,
     }
 ]
