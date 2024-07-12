@@ -23,3 +23,4 @@
         isCompleted: false,
     }
 ]
+export default tasks;
