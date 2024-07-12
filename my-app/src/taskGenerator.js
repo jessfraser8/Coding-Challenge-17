@@ -2,42 +2,43 @@
 // Display tasks with status.
 
 // Import tasks.
-import tasks from './tasks.js'
+import tasks from './tasks.js';
+import FancyText from './FancyText.js';
+import {useEffect, useState} from 'react';
 
-let index = 0
-
-function TaskGenerator() {
-    let list = tasks.map(task => {
-        if (task.isCompleted) {
-            return (
-                <div>
-                    <p>{task.name}</p>
-                    <p>Completed! ✅</p>
-                </div>
-            )
-        } else {
-            return (
-                <div>
-                    <p>{task.name}</p>
-                    <p>Pending...</p>
-                </div>
-            )
-        }
-        
-        
+function Task({task}) {
+    const [isCompleted, setCompleted] = useState(task.isCompleted)
+    useEffect(() => {
+        setCompleted(task.isCompleted)
     })
     return (
-        <div>
-            {list[index]}
-            <button onClick={() => {
-                index ++
-                if (index >= list.length) {
-                    index = 0
+        <div className="task">
+            <FancyText title={false} text={"Task: " + task.name}/>
+            <div className="status">
+                <input className="status-box" type="checkbox" checked={isCompleted} onChange={() => {
+                    task.isCompleted = !task.isCompleted
+                    setCompleted(task.isCompleted)
+                }}/>
+                <p>{isCompleted ? "Completed ✔️" : "Pending..."}</p>
+            </div>
+            <FancyText title={true} text={isCompleted ? "Good work!!" : "You got this!"}/>
+        </div>
+    )
+}
+
+function TaskGenerator() {
+    let [index, setIndex] = useState(0)
+    return (
+        <div className="task-generator">
+            <Task task={tasks[index]}/>
+            <button className="next-button" onClick={() => {
+                setIndex(index + 1)
+                if (index === tasks.length - 1) {
+                    setIndex(0)
                 }
             }}>Next Task</button>
         </div>
     )
-
 }
 
 export default TaskGenerator;
