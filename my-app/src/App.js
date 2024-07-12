@@ -13,6 +13,8 @@ function App() {
         <FancyText title={true} text="Task Motivator"/>
       </div>
       <TaskGenerator/>
+      <p/>
+      <footer>Copyright © 2024 Jessica Fraser.</footer>
     </div>
   );
 }
