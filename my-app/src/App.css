@@ -1,0 +1,44 @@
+/* App.css */
+
+.task-generator {
+  flex-basis: 75%;
+  text-align: center;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 90vh;
+  width: 50%;
+  margin: auto;
+}
+
+.status-box {
+  scale: 2;
+}
+
+.next-button {
+  padding: 10px;
+  background-color: rgb(227, 247, 254);
+  margin: 20px;
+  border-radius: 5px;
+}
+
+.app-title {
+  scale: 2;
+  color: firebrick;
+}
+
+.regular-text {
+  font-size: 1.25rem;
+  line-height: 1.5rem;
+}
+
+.title {
+  font-size: 1.25rem;
+  line-height: 3rem;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-style: italic;
+}
